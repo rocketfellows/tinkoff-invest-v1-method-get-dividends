@@ -17,6 +17,7 @@ class Dividend
     private $recordDate;
     private $createdAt;
     private $dividendType;
+    private $regularity;
 
     public function __construct(
         MoneyValue $dividendNet,
@@ -27,7 +28,8 @@ class Dividend
         DateTime $lastBuyDate,
         DateTime $recordDate,
         DateTime $createdAt,
-        ?string $dividendType
+        ?string $dividendType,
+        ?string $regularity
     ) {
         $this->dividendNet = $dividendNet;
         $this->closePrice = $closePrice;
@@ -38,6 +40,7 @@ class Dividend
         $this->recordDate = $recordDate;
         $this->createdAt = $createdAt;
         $this->dividendType = $dividendType;
+        $this->regularity = $regularity;
     }
 
     public function getDividendNet(): MoneyValue
@@ -83,5 +86,10 @@ class Dividend
     public function getDividendType(): ?string
     {
         return $this->dividendType;
+    }
+
+    public function getRegularity(): ?string
+    {
+        return $this->regularity;
     }
 }
