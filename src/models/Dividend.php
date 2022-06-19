@@ -11,17 +11,20 @@ class Dividend
     private $paymentDate;
     private $declaredDate;
     private $lastBuyDate;
+    private $recordDate;
 
     public function __construct(
         MoneyValue $dividendNet,
         DateTime $paymentDate,
         DateTime $declaredDate,
-        DateTime $lastBuyDate
+        DateTime $lastBuyDate,
+        DateTime $recordDate
     ) {
         $this->dividendNet = $dividendNet;
         $this->paymentDate = $paymentDate;
         $this->declaredDate = $declaredDate;
         $this->lastBuyDate = $lastBuyDate;
+        $this->recordDate = $recordDate;
     }
 
     public function getDividendNet(): MoneyValue
@@ -42,5 +45,10 @@ class Dividend
     public function getLastBuyDate(): DateTime
     {
         return $this->lastBuyDate;
+    }
+
+    public function getRecordDate(): DateTime
+    {
+        return $this->recordDate;
     }
 }
