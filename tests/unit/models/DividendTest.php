@@ -4,7 +4,7 @@ namespace rocketfellows\TinkoffInvestV1MethodGetDividends\tests\unit\models;
 
 use arslanimamutdinov\ISOStandard4217\ISO4217;
 use DateTime;
-use PHPStan\Testing\TestCase;
+use PHPUnit\Framework\TestCase;
 use rocketfellows\TinkoffInvestV1Common\models\MoneyValue;
 use rocketfellows\TinkoffInvestV1Common\models\Quotation;
 use rocketfellows\TinkoffInvestV1MethodGetDividends\models\Dividend;
@@ -42,14 +42,14 @@ class DividendTest extends TestCase
             $regularity
         );
 
-        $this->assertEquals($dividendNet, $actualDividend->getDividendNet());
-        $this->assertEquals($closePrice, $actualDividend->getClosePrice());
-        $this->assertEquals($yieldValue, $actualDividend->getYieldValue());
-        $this->assertEquals($paymentDate, $actualDividend->getPaymentDate());
-        $this->assertEquals($declaredDate, $actualDividend->getDeclaredDate());
-        $this->assertEquals($lastBuyDate, $actualDividend->getLastBuyDate());
-        $this->assertEquals($recordDate, $actualDividend->getRecordDate());
-        $this->assertEquals($createdAt, $actualDividend->getCreatedAt());
+        $this->assertEqualsCanonicalizing($dividendNet, $actualDividend->getDividendNet());
+        $this->assertEqualsCanonicalizing($closePrice, $actualDividend->getClosePrice());
+        $this->assertEqualsCanonicalizing($yieldValue, $actualDividend->getYieldValue());
+        $this->assertEqualsCanonicalizing($paymentDate, $actualDividend->getPaymentDate());
+        $this->assertEqualsCanonicalizing($declaredDate, $actualDividend->getDeclaredDate());
+        $this->assertEqualsCanonicalizing($lastBuyDate, $actualDividend->getLastBuyDate());
+        $this->assertEqualsCanonicalizing($recordDate, $actualDividend->getRecordDate());
+        $this->assertEqualsCanonicalizing($createdAt, $actualDividend->getCreatedAt());
         $this->assertEquals($dividendType, $actualDividend->getDividendType());
         $this->assertEquals($regularity, $actualDividend->getRegularity());
     }
