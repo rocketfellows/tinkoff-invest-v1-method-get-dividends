@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "1d444d11de04289b9b19b9889bbbc8cd",
+    "content-hash": "23975419b8240ec4682b200fc9883604",
     "packages": [
         {
             "name": "arslanimamutdinov/iso-standard-4217",
@@ -751,6 +751,47 @@
                 "source": "https://github.com/rocketfellows/tinkoff-invest-v1-rest-client/tree/v1.0.1"
             },
             "time": "2022-06-08T20:29:59+00:00"
+        },
+        {
+            "name": "rocketfellows/tuple",
+            "version": "v1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/rocketfellows/tuple.git",
+                "reference": "414659abcdea3d08333499e2f39cea7e221a8f90"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/rocketfellows/tuple/zipball/414659abcdea3d08333499e2f39cea7e221a8f90",
+                "reference": "414659abcdea3d08333499e2f39cea7e221a8f90",
+                "shasum": ""
+            },
+            "require-dev": {
+                "phpstan/phpstan": "^0.12.90",
+                "phpunit/phpunit": "^8.5",
+                "squizlabs/php_codesniffer": "3.6.2"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "rocketfellows\\tuple\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Arslan Imamutdinov",
+                    "email": "ara.imamutdinov@gmail.com"
+                }
+            ],
+            "support": {
+                "issues": "https://github.com/rocketfellows/tuple/issues",
+                "source": "https://github.com/rocketfellows/tuple/tree/v1.0.0"
+            },
+            "time": "2022-05-30T20:28:34+00:00"
         },
         {
             "name": "symfony/deprecation-contracts",
