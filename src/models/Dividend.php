@@ -4,11 +4,13 @@ namespace rocketfellows\TinkoffInvestV1MethodGetDividends\models;
 
 use DateTime;
 use rocketfellows\TinkoffInvestV1Common\models\MoneyValue;
+use rocketfellows\TinkoffInvestV1Common\models\Quotation;
 
 class Dividend
 {
     private $dividendNet;
     private $paymentDate;
+    private $yieldValue;
     private $declaredDate;
     private $lastBuyDate;
     private $recordDate;
@@ -17,6 +19,7 @@ class Dividend
     public function __construct(
         MoneyValue $dividendNet,
         MoneyValue $closePrice,
+        Quotation $yieldValue,
         DateTime $paymentDate,
         DateTime $declaredDate,
         DateTime $lastBuyDate,
@@ -24,6 +27,7 @@ class Dividend
     ) {
         $this->dividendNet = $dividendNet;
         $this->closePrice = $closePrice;
+        $this->yieldValue = $yieldValue;
         $this->paymentDate = $paymentDate;
         $this->declaredDate = $declaredDate;
         $this->lastBuyDate = $lastBuyDate;
@@ -58,5 +62,10 @@ class Dividend
     public function getClosePrice(): MoneyValue
     {
         return $this->closePrice;
+    }
+
+    public function getYieldValue(): Quotation
+    {
+        return $this->yieldValue;
     }
 }
