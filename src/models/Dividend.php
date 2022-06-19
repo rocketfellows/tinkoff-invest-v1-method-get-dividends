@@ -9,12 +9,13 @@ use rocketfellows\TinkoffInvestV1Common\models\Quotation;
 class Dividend
 {
     private $dividendNet;
-    private $paymentDate;
+    private $closePrice;
     private $yieldValue;
+    private $paymentDate;
     private $declaredDate;
     private $lastBuyDate;
     private $recordDate;
-    private $closePrice;
+    private $createdAt;
 
     public function __construct(
         MoneyValue $dividendNet,
@@ -23,7 +24,8 @@ class Dividend
         DateTime $paymentDate,
         DateTime $declaredDate,
         DateTime $lastBuyDate,
-        DateTime $recordDate
+        DateTime $recordDate,
+        DateTime $createdAt
     ) {
         $this->dividendNet = $dividendNet;
         $this->closePrice = $closePrice;
@@ -32,6 +34,7 @@ class Dividend
         $this->declaredDate = $declaredDate;
         $this->lastBuyDate = $lastBuyDate;
         $this->recordDate = $recordDate;
+        $this->createdAt = $createdAt;
     }
 
     public function getDividendNet(): MoneyValue
@@ -67,5 +70,10 @@ class Dividend
     public function getYieldValue(): Quotation
     {
         return $this->yieldValue;
+    }
+
+    public function getCreatedAt(): DateTime
+    {
+        return $this->createdAt;
     }
 }
