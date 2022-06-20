@@ -23,7 +23,7 @@ class Dividend
         MoneyValue $dividendNet,
         MoneyValue $closePrice,
         Quotation $yieldValue,
-        DateTime $paymentDate,
+        ?DateTime $paymentDate,
         DateTime $declaredDate,
         DateTime $lastBuyDate,
         DateTime $recordDate,
@@ -48,7 +48,7 @@ class Dividend
         return $this->dividendNet;
     }
 
-    public function getPaymentDate(): DateTime
+    public function getPaymentDate(): ?DateTime
     {
         return $this->paymentDate;
     }
