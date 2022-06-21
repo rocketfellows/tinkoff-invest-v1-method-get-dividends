@@ -73,14 +73,13 @@ class DividendsRequestService implements DividendsRequestInterface
             );
         } catch (ClientException $exception) {
             throw new IncorrectInputsException($exception->getErrorMessage(), $exception->getCode(), $exception);
-        } catch (ServerException | HttpClientException $exception) {
+        } catch (ServerException $exception) {
             throw new SourceFaultException($exception->getErrorMessage(), $exception->getCode(), $exception);
+        } catch (HttpClientException $exception) {
+            throw new SourceFaultException($exception->getMessage(), $exception->getCode(), $exception);
         }
     }
 
-    /**
-     * TODO: check required response data, may be fix Dividend types
-     */
     private function createDividendsFromRawData(array $rawDividendsData): Dividends
     {
         return new Dividends(
