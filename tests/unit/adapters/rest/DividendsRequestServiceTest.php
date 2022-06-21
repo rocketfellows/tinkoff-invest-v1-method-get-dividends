@@ -334,15 +334,15 @@ class DividendsRequestServiceTest extends TestCase
     public function getHandlingClientExceptionsProvidedData(): array
     {
         return [
-            [
+            'httpClientError' => [
                 'thrownClientException' => new HttpClientException(),
                 'expectedThrownExceptionClass' => SourceFaultException::class,
             ],
-            [
+            'clientError' => [
                 'thrownClientException' => new ClientException(new BadResponseData()),
                 'expectedThrownExceptionClass' => IncorrectInputsException::class,
             ],
-            [
+            'serverError' => [
                 'thrownClientException' => new ServerException(new BadResponseData()),
                 'expectedThrownExceptionClass' => SourceFaultException::class,
             ],
