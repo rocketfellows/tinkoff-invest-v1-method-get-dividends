@@ -19,8 +19,8 @@ use rocketfellows\TinkoffInvestV1RestClient\exceptions\request\ServerException;
 class DividendsRequestService implements DividendsRequestInterface
 {
     private const REQUEST_DATA_KEY_FIGI = 'figi';
-    private const REQUEST_DATA_KEY_FROM = 'from';
-    private const REQUEST_DATA_KEY_TO = 'to';
+    //private const REQUEST_DATA_KEY_FROM = 'from';
+    //private const REQUEST_DATA_KEY_TO = 'to';
 
     private const RAW_DATA_KEY_DIVIDENDS_LIST = 'dividends';
     private const RAW_DATA_KEY_DIVIDEND_NET = 'dividendNet';
