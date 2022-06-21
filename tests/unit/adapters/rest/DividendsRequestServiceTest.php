@@ -4,6 +4,7 @@ namespace rocketfellows\TinkoffInvestV1MethodGetDividends\tests\unit\adapters\re
 
 use arslanimamutdinov\ISOStandard4217\ISO4217;
 use DateTime;
+use Exception;
 use PHPUnit\Framework\MockObject\Builder\InvocationMocker;
 use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
@@ -12,8 +13,14 @@ use rocketfellows\TinkoffInvestV1Common\models\Quotation;
 use rocketfellows\TinkoffInvestV1InstrumentsRestClient\GetDividendsInterface;
 use rocketfellows\TinkoffInvestV1MethodGetDividends\adapters\rest\DividendsRequestService;
 use rocketfellows\TinkoffInvestV1MethodGetDividends\DividendsRequestInterface;
+use rocketfellows\TinkoffInvestV1MethodGetDividends\exceptions\IncorrectInputsException;
+use rocketfellows\TinkoffInvestV1MethodGetDividends\exceptions\SourceFaultException;
 use rocketfellows\TinkoffInvestV1MethodGetDividends\models\Dividend;
 use rocketfellows\TinkoffInvestV1MethodGetDividends\models\Dividends;
+use rocketfellows\TinkoffInvestV1RestClient\exceptions\request\BadResponseData;
+use rocketfellows\TinkoffInvestV1RestClient\exceptions\request\ClientException;
+use rocketfellows\TinkoffInvestV1RestClient\exceptions\request\HttpClientException;
+use rocketfellows\TinkoffInvestV1RestClient\exceptions\request\ServerException;
 
 /**
  * @group adapters-rest
@@ -65,6 +72,17 @@ class DividendsRequestServiceTest extends TestCase
     {
         $this->assertRequestAllDividends(self::FIGI_TEST_VALUE, $rawDividendsData);
         $this->assertEqualsCanonicalizing($expectedDividends, $this->dividendsRequestService->requestAll(self::FIGI_TEST_VALUE));
+    }
+
+    /**
+     * @dataProvider getHandlingClientExceptionsProvidedData
+     */
+    public function testClientThrowsException(Exception $thrownClientException, string $expectedThrownExceptionClass): void
+    {
+        $this->assertClientThrowsException($thrownClientException);
+        $this->expectException($expectedThrownExceptionClass);
+
+        $this->dividendsRequestService->requestAll(self::FIGI_TEST_VALUE);
     }
 
     public function getRawDividendsData(): array
@@ -311,6 +329,29 @@ class DividendsRequestServiceTest extends TestCase
                 ),
             ],
         ];
+    }
+
+    public function getHandlingClientExceptionsProvidedData(): array
+    {
+        return [
+            [
+                'thrownClientException' => new HttpClientException(),
+                'expectedThrownExceptionClass' => SourceFaultException::class,
+            ],
+            [
+                'thrownClientException' => new ClientException(new BadResponseData()),
+                'expectedThrownExceptionClass' => IncorrectInputsException::class,
+            ],
+            [
+                'thrownClientException' => new ServerException(new BadResponseData()),
+                'expectedThrownExceptionClass' => SourceFaultException::class,
+            ],
+        ];
+    }
+
+    private function assertClientThrowsException(Exception $exception): void
+    {
+        $this->dividendsRequestClient->method('getDividends')->willThrowException($exception);
     }
 
     private function assertRequestAllDividends(string $figi, array $rawDividendsData): void
