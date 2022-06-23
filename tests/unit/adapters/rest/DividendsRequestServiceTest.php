@@ -71,7 +71,7 @@ class DividendsRequestServiceTest extends TestCase
     public function testSuccessRequestAll(array $rawDividendsData, Dividends $expectedDividends): void
     {
         $this->assertRequestAllDividends(self::FIGI_TEST_VALUE, $rawDividendsData);
-        $this->assertEqualsCanonicalizing($expectedDividends, $this->dividendsRequestService->requestAll(self::FIGI_TEST_VALUE));
+        $this->assertEquals($expectedDividends, $this->dividendsRequestService->requestAll(self::FIGI_TEST_VALUE));
     }
 
     /**
