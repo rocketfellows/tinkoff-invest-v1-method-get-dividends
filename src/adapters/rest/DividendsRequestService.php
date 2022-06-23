@@ -20,7 +20,7 @@ class DividendsRequestService implements DividendsRequestInterface
 {
     private const REQUEST_DATA_KEY_FIGI = 'figi';
     //private const REQUEST_DATA_KEY_FROM = 'from';
-    //private const REQUEST_DATA_KEY_TO = 'to';
+    private const REQUEST_DATA_KEY_TO = 'to';
 
     private const RAW_DATA_KEY_DIVIDENDS_LIST = 'dividends';
     private const RAW_DATA_KEY_DIVIDEND_NET = 'dividendNet';
@@ -37,6 +37,8 @@ class DividendsRequestService implements DividendsRequestInterface
     private const RAW_DATA_KEY_DIVIDEND_TYPE = 'dividendType';
     private const RAW_DATA_KEY_CREATED_AT = 'createdAt';
 
+    private const DATE_TIME_STRING_FORMAT = 'Y-m-d\TH:i:s.000\Z';
+
     private $dividendsRequestClient;
 
     public function __construct(GetDividendsInterface $dividendsRequestClient)
@@ -51,8 +53,10 @@ class DividendsRequestService implements DividendsRequestInterface
 
     public function requestToDate(string $figi, DateTime $toDateTime): Dividends
     {
-        // TODO: Implement requestToDate() method.
-        return new Dividends();
+        return $this->request([
+            self::REQUEST_DATA_KEY_FIGI => $figi,
+            self::REQUEST_DATA_KEY_TO => $toDateTime->format(self::DATE_TIME_STRING_FORMAT)
+        ]);
     }
 
     public function requestByPeriod(string $figi, DateTime $fromDateTime, DateTime $toDateTime): Dividends
