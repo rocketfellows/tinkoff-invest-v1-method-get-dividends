@@ -2,6 +2,7 @@
 
 namespace rocketfellows\TinkoffInvestV1MethodGetDividends\tests\unit;
 
+use DateTime;
 use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
 use rocketfellows\TinkoffInvestV1MethodGetDividends\DividendsRequestInterface;
@@ -41,6 +42,27 @@ class DividendsServiceTest extends TestCase
         $this->assertDividendsRequestAll(self::FIGI_TEST_VALUE, $dividends);
 
         $this->assertEqualsCanonicalizing($dividends, $this->dividendsService->getAll(self::FIGI_TEST_VALUE));
+    }
+
+    public function testSuccessGetBeforeDate(): void
+    {
+        $dividends = $this->getTestDividends();
+        $beforeDateTime = new DateTime();
+        $this->assertDividendsRequestToDate(self::FIGI_TEST_VALUE, $beforeDateTime, $dividends);
+
+        $this->assertEqualsCanonicalizing(
+            $dividends,
+            $this->dividendsService->getBeforeDate(self::FIGI_TEST_VALUE, $beforeDateTime)
+        );
+    }
+
+    private function assertDividendsRequestToDate(string $figi, DateTime $toDateTime,Dividends $dividends): void
+    {
+        $this->dividendsRequestInterface
+            ->expects($this->once())
+            ->method('requestToDate')
+            ->with($figi, $toDateTime)
+            ->willReturn($dividends);
     }
 
     private function assertDividendsRequestAll(string $figi, Dividends $dividends): void
