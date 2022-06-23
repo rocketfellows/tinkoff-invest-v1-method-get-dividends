@@ -19,7 +19,7 @@ use rocketfellows\TinkoffInvestV1RestClient\exceptions\request\ServerException;
 class DividendsRequestService implements DividendsRequestInterface
 {
     private const REQUEST_DATA_KEY_FIGI = 'figi';
-    //private const REQUEST_DATA_KEY_FROM = 'from';
+    private const REQUEST_DATA_KEY_FROM = 'from';
     private const REQUEST_DATA_KEY_TO = 'to';
 
     private const RAW_DATA_KEY_DIVIDENDS_LIST = 'dividends';
@@ -61,8 +61,11 @@ class DividendsRequestService implements DividendsRequestInterface
 
     public function requestByPeriod(string $figi, DateTime $fromDateTime, DateTime $toDateTime): Dividends
     {
-        // TODO: Implement requestByPeriod() method.
-        return new Dividends();
+        return $this->request([
+            self::REQUEST_DATA_KEY_FIGI => $figi,
+            self::REQUEST_DATA_KEY_FROM => $fromDateTime->format(self::DATE_TIME_STRING_FORMAT),
+            self::REQUEST_DATA_KEY_TO => $toDateTime->format(self::DATE_TIME_STRING_FORMAT),
+        ]);
     }
 
     /**
