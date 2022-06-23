@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1656017478">
-  <project timestamp="1656017478">
+<coverage generated="1656021279">
+  <project timestamp="1656021279">
     <file name="/app/src/DividendsRequestInterface.php">
       <metrics loc="30" ncloc="18" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
     </file>
