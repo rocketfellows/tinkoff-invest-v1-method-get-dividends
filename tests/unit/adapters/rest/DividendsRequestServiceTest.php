@@ -112,6 +112,43 @@ class DividendsRequestServiceTest extends TestCase
         $this->dividendsRequestService->requestToDate(self::FIGI_TEST_VALUE, $toDateTime);
     }
 
+    /**
+     * @dataProvider getRawDividendsData
+     */
+    public function testSuccessRequestByPeriod(array $rawDividendsData, Dividends $expectedDividends): void
+    {
+        $fromDateTime = new DateTime('2022-06-23 20:17:45');
+        $fromDateTimeString = '2022-06-23T20:17:45.000Z';
+        $toDateTime = new DateTime('2022-06-24 20:17:45');
+        $toDateTimeString = '2022-06-24T20:17:45.000Z';
+
+        $this->assertRequestByPeriodDividends(
+            self::FIGI_TEST_VALUE,
+            $fromDateTimeString,
+            $toDateTimeString,
+            $rawDividendsData
+        );
+        $this->assertEquals(
+            $expectedDividends,
+            $this->dividendsRequestService->requestByPeriod(self::FIGI_TEST_VALUE, $fromDateTime, $toDateTime)
+        );
+    }
+
+    /**
+     * @dataProvider getHandlingClientExceptionsProvidedData
+     */
+    public function testRequestByPeriodClientThrowsException(
+        Exception $thrownClientException,
+        string $expectedThrownExceptionClass
+    ): void {
+        $this->assertClientThrowsException($thrownClientException);
+        $this->expectException($expectedThrownExceptionClass);
+
+        $fromDateTime = new DateTime();
+        $toDateTime = new DateTime();
+        $this->dividendsRequestService->requestByPeriod(self::FIGI_TEST_VALUE, $fromDateTime, $toDateTime);
+    }
+
     public function getRawDividendsData(): array
     {
         return [
@@ -379,6 +416,18 @@ class DividendsRequestServiceTest extends TestCase
     private function assertClientThrowsException(Exception $exception): void
     {
         $this->dividendsRequestClient->method('getDividends')->willThrowException($exception);
+    }
+
+    private function assertRequestByPeriodDividends(
+        string $figi,
+        string $fromTimeString,
+        string $toTimeString,
+        array $rawDividendsData
+    ): void {
+        $this
+            ->expectsDividendsRequest()
+            ->with(['figi' => $figi, 'from' => $fromTimeString, 'to' => $toTimeString])
+            ->willReturn($rawDividendsData);
     }
 
     private function assertRequestToDateDividends(string $figi, string $dateTimeString, array $rawDividendsData): void
