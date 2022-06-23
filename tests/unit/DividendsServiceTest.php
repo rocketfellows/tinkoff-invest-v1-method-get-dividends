@@ -56,6 +56,33 @@ class DividendsServiceTest extends TestCase
         );
     }
 
+    public function testSuccessGetByPeriod(): void
+    {
+        $dividends = $this->getTestDividends();
+        $fromDateTime = new DateTime();
+        $toDateTime = new DateTime();
+
+        $this->assertDividendsRequestByPeriod(self::FIGI_TEST_VALUE, $fromDateTime, $toDateTime, $dividends);
+
+        $this->assertEqualsCanonicalizing(
+            $dividends,
+            $this->dividendsService->getByPeriod(self::FIGI_TEST_VALUE, $fromDateTime, $toDateTime)
+        );
+    }
+
+    private function assertDividendsRequestByPeriod(
+        string $figi,
+        DateTime $fromDateTime,
+        DateTime $toDateTime,
+        Dividends $dividends
+    ): void {
+        $this->dividendsRequestInterface
+            ->expects($this->once())
+            ->method('requestByPeriod')
+            ->with($figi, $fromDateTime, $toDateTime)
+            ->willReturn($dividends);
+    }
+
     private function assertDividendsRequestToDate(string $figi, DateTime $toDateTime, Dividends $dividends): void
     {
         $this->dividendsRequestInterface
