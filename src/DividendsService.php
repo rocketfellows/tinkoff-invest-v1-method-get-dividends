@@ -36,4 +36,13 @@ class DividendsService
     {
         return $this->dividendsRequestInterface->requestToDate($figi, $dateTime);
     }
+
+    /**
+     * @throws IncorrectInputsException
+     * @throws SourceFaultException
+     */
+    public function getByPeriod(string $figi, DateTime $fromDateTime, DateTime $toDateTime): Dividends
+    {
+        return $this->dividendsRequestInterface->requestByPeriod($figi, $fromDateTime, $toDateTime);
+    }
 }
