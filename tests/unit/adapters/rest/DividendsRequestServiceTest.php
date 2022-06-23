@@ -339,11 +339,11 @@ class DividendsRequestServiceTest extends TestCase
                 'expectedThrownExceptionClass' => SourceFaultException::class,
             ],
             'clientError' => [
-                'thrownClientException' => new ClientException(new BadResponseData()),
+                'thrownClientException' => new ClientException(new BadResponseData(1, 'foo', 'foo')),
                 'expectedThrownExceptionClass' => IncorrectInputsException::class,
             ],
             'serverError' => [
-                'thrownClientException' => new ServerException(new BadResponseData()),
+                'thrownClientException' => new ServerException(new BadResponseData(1, 'foo', 'foo')),
                 'expectedThrownExceptionClass' => SourceFaultException::class,
             ],
         ];
