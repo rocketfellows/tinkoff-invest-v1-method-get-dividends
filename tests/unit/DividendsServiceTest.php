@@ -56,7 +56,7 @@ class DividendsServiceTest extends TestCase
         );
     }
 
-    private function assertDividendsRequestToDate(string $figi, DateTime $toDateTime,Dividends $dividends): void
+    private function assertDividendsRequestToDate(string $figi, DateTime $toDateTime, Dividends $dividends): void
     {
         $this->dividendsRequestInterface
             ->expects($this->once())
