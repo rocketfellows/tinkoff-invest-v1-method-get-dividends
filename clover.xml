@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1656274752">
-  <project timestamp="1656274752">
+<coverage generated="1656275971">
+  <project timestamp="1656275971">
     <file name="/app/src/DividendsRequestInterface.php">
       <metrics loc="30" ncloc="18" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
     </file>
@@ -8,15 +8,15 @@
       <class name="rocketfellows\TinkoffInvestV1MethodGetDividends\DividendsService" namespace="global">
         <metrics complexity="4" methods="4" coveredmethods="4" conditionals="0" coveredconditionals="0" statements="4" coveredstatements="4" elements="8" coveredelements="8"/>
       </class>
-      <line num="17" type="method" name="__construct" visibility="public" complexity="1" crap="1" count="3"/>
-      <line num="19" type="stmt" count="3"/>
-      <line num="26" type="method" name="getAll" visibility="public" complexity="1" crap="1" count="1"/>
-      <line num="28" type="stmt" count="1"/>
-      <line num="35" type="method" name="getBeforeDate" visibility="public" complexity="1" crap="1" count="1"/>
-      <line num="37" type="stmt" count="1"/>
-      <line num="44" type="method" name="getByPeriod" visibility="public" complexity="1" crap="1" count="1"/>
-      <line num="46" type="stmt" count="1"/>
-      <metrics loc="49" ncloc="34" classes="1" methods="4" coveredmethods="4" conditionals="0" coveredconditionals="0" statements="4" coveredstatements="4" elements="8" coveredelements="8"/>
+      <line num="14" type="method" name="__construct" visibility="public" complexity="1" crap="1" count="3"/>
+      <line num="16" type="stmt" count="3"/>
+      <line num="23" type="method" name="getAll" visibility="public" complexity="1" crap="1" count="1"/>
+      <line num="25" type="stmt" count="1"/>
+      <line num="32" type="method" name="getBeforeDate" visibility="public" complexity="1" crap="1" count="1"/>
+      <line num="34" type="stmt" count="1"/>
+      <line num="41" type="method" name="getByPeriod" visibility="public" complexity="1" crap="1" count="1"/>
+      <line num="43" type="stmt" count="1"/>
+      <metrics loc="46" ncloc="34" classes="1" methods="4" coveredmethods="4" conditionals="0" coveredconditionals="0" statements="4" coveredstatements="4" elements="8" coveredelements="8"/>
     </file>
     <file name="/app/src/adapters/rest/DividendsRequestService.php">
       <class name="rocketfellows\TinkoffInvestV1MethodGetDividends\adapters\rest\DividendsRequestService" namespace="global">
@@ -135,6 +135,6 @@
       <line num="16" type="stmt" count="3"/>
       <metrics loc="19" ncloc="19" classes="1" methods="2" coveredmethods="2" conditionals="0" coveredconditionals="0" statements="2" coveredstatements="2" elements="4" coveredelements="4"/>
     </file>
-    <metrics files="8" loc="349" ncloc="318" classes="4" methods="23" coveredmethods="23" conditionals="0" coveredconditionals="0" statements="66" coveredstatements="66" elements="89" coveredelements="89"/>
+    <metrics files="8" loc="346" ncloc="318" classes="4" methods="23" coveredmethods="23" conditionals="0" coveredconditionals="0" statements="66" coveredstatements="66" elements="89" coveredelements="89"/>
   </project>
 </coverage>
