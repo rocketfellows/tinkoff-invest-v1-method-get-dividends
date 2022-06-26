@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a111efb6df5b7f7cdd0e6757245a6411",
+    "content-hash": "f93cdf0b59530d71a2c7970454b70bc4",
     "packages": [
         {
             "name": "arslanimamutdinov/iso-standard-4217",
@@ -620,16 +620,16 @@
         },
         {
             "name": "rocketfellows/tinkoff-invest-v1-common",
-            "version": "v1.0.0",
+            "version": "v1.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/rocketfellows/tinkoff-invest-v1-common.git",
-                "reference": "4607e02f0d8bc0b394772152f010697304b4a699"
+                "reference": "341dc7f58c161b6cf7f67eeee5f5f083d140b405"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/rocketfellows/tinkoff-invest-v1-common/zipball/4607e02f0d8bc0b394772152f010697304b4a699",
-                "reference": "4607e02f0d8bc0b394772152f010697304b4a699",
+                "url": "https://api.github.com/repos/rocketfellows/tinkoff-invest-v1-common/zipball/341dc7f58c161b6cf7f67eeee5f5f083d140b405",
+                "reference": "341dc7f58c161b6cf7f67eeee5f5f083d140b405",
                 "shasum": ""
             },
             "require": {
@@ -658,9 +658,9 @@
             ],
             "support": {
                 "issues": "https://github.com/rocketfellows/tinkoff-invest-v1-common/issues",
-                "source": "https://github.com/rocketfellows/tinkoff-invest-v1-common/tree/v1.0.0"
+                "source": "https://github.com/rocketfellows/tinkoff-invest-v1-common/tree/v1.1.0"
             },
-            "time": "2022-05-30T20:53:34+00:00"
+            "time": "2022-06-26T20:57:34+00:00"
         },
         {
             "name": "rocketfellows/tinkoff-invest-v1-instruments-rest-client",

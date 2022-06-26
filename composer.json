@@ -10,7 +10,7 @@
     "require": {
         "php": ">=7.4",
         "rocketfellows/tuple": "1.0.0",
-        "rocketfellows/tinkoff-invest-v1-common": "1.0.0",
+        "rocketfellows/tinkoff-invest-v1-common": "1.1.0",
         "rocketfellows/tinkoff-invest-v1-instruments-rest-client": "1.0.1"
     },
     "require-dev": {
