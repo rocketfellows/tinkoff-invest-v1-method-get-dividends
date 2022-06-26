@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1656275971">
-  <project timestamp="1656275971">
+<coverage generated="1656277978">
+  <project timestamp="1656277978">
     <file name="/app/src/DividendsRequestInterface.php">
       <metrics loc="30" ncloc="18" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
     </file>
@@ -70,24 +70,6 @@
       <line num="121" type="stmt" count="12"/>
       <metrics loc="129" ncloc="125" classes="1" methods="6" coveredmethods="6" conditionals="0" coveredconditionals="0" statements="40" coveredstatements="40" elements="46" coveredelements="46"/>
     </file>
-    <file name="/app/src/exceptions/DividendsServiceException.php">
-      <class name="rocketfellows\TinkoffInvestV1MethodGetDividends\exceptions\DividendsServiceException" namespace="global">
-        <metrics complexity="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
-      </class>
-      <metrics loc="10" ncloc="10" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
-    </file>
-    <file name="/app/src/exceptions/IncorrectInputsException.php">
-      <class name="rocketfellows\TinkoffInvestV1MethodGetDividends\exceptions\IncorrectInputsException" namespace="global">
-        <metrics complexity="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
-      </class>
-      <metrics loc="8" ncloc="8" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
-    </file>
-    <file name="/app/src/exceptions/SourceFaultException.php">
-      <class name="rocketfellows\TinkoffInvestV1MethodGetDividends\exceptions\SourceFaultException" namespace="global">
-        <metrics complexity="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
-      </class>
-      <metrics loc="8" ncloc="8" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
-    </file>
     <file name="/app/src/models/Dividend.php">
       <class name="rocketfellows\TinkoffInvestV1MethodGetDividends\models\Dividend" namespace="global">
         <metrics complexity="11" methods="11" coveredmethods="11" conditionals="0" coveredconditionals="0" statements="20" coveredstatements="20" elements="31" coveredelements="31"/>
@@ -135,6 +117,6 @@
       <line num="16" type="stmt" count="3"/>
       <metrics loc="19" ncloc="19" classes="1" methods="2" coveredmethods="2" conditionals="0" coveredconditionals="0" statements="2" coveredstatements="2" elements="4" coveredelements="4"/>
     </file>
-    <metrics files="8" loc="346" ncloc="318" classes="4" methods="23" coveredmethods="23" conditionals="0" coveredconditionals="0" statements="66" coveredstatements="66" elements="89" coveredelements="89"/>
+    <metrics files="5" loc="320" ncloc="292" classes="4" methods="23" coveredmethods="23" conditionals="0" coveredconditionals="0" statements="66" coveredstatements="66" elements="89" coveredelements="89"/>
   </project>
 </coverage>
