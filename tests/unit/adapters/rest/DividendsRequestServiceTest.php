@@ -8,13 +8,13 @@ use Exception;
 use PHPUnit\Framework\MockObject\Builder\InvocationMocker;
 use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
+use rocketfellows\TinkoffInvestV1Common\exceptions\faults\IncorrectInputsFaultException;
+use rocketfellows\TinkoffInvestV1Common\exceptions\faults\SourceFaultException;
 use rocketfellows\TinkoffInvestV1Common\models\MoneyValue;
 use rocketfellows\TinkoffInvestV1Common\models\Quotation;
 use rocketfellows\TinkoffInvestV1InstrumentsRestClient\GetDividendsInterface;
 use rocketfellows\TinkoffInvestV1MethodGetDividends\adapters\rest\DividendsRequestService;
 use rocketfellows\TinkoffInvestV1MethodGetDividends\DividendsRequestInterface;
-use rocketfellows\TinkoffInvestV1MethodGetDividends\exceptions\IncorrectInputsException;
-use rocketfellows\TinkoffInvestV1MethodGetDividends\exceptions\SourceFaultException;
 use rocketfellows\TinkoffInvestV1MethodGetDividends\models\Dividend;
 use rocketfellows\TinkoffInvestV1MethodGetDividends\models\Dividends;
 use rocketfellows\TinkoffInvestV1RestClient\exceptions\request\BadResponseData;
@@ -404,7 +404,7 @@ class DividendsRequestServiceTest extends TestCase
             ],
             'clientError' => [
                 'thrownClientException' => new ClientException(new BadResponseData(1, 'foo', 'foo')),
-                'expectedThrownExceptionClass' => IncorrectInputsException::class,
+                'expectedThrownExceptionClass' => IncorrectInputsFaultException::class,
             ],
             'serverError' => [
                 'thrownClientException' => new ServerException(new BadResponseData(1, 'foo', 'foo')),

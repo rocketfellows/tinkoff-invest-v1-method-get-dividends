@@ -3,8 +3,8 @@
 namespace rocketfellows\TinkoffInvestV1MethodGetDividends;
 
 use DateTime;
-use rocketfellows\TinkoffInvestV1MethodGetDividends\exceptions\IncorrectInputsException;
-use rocketfellows\TinkoffInvestV1MethodGetDividends\exceptions\SourceFaultException;
+use rocketfellows\TinkoffInvestV1Common\exceptions\faults\IncorrectInputsFaultException;
+use rocketfellows\TinkoffInvestV1Common\exceptions\faults\SourceFaultException;
 use rocketfellows\TinkoffInvestV1MethodGetDividends\models\Dividends;
 
 class DividendsService
@@ -18,7 +18,7 @@ class DividendsService
 
     /**
      * @throws SourceFaultException
-     * @throws IncorrectInputsException
+     * @throws IncorrectInputsFaultException
      */
     public function getAll(string $figi): Dividends
     {
@@ -27,7 +27,7 @@ class DividendsService
 
     /**
      * @throws SourceFaultException
-     * @throws IncorrectInputsException
+     * @throws IncorrectInputsFaultException
      */
     public function getBeforeDate(string $figi, DateTime $dateTime): Dividends
     {
@@ -35,7 +35,7 @@ class DividendsService
     }
 
     /**
-     * @throws IncorrectInputsException
+     * @throws IncorrectInputsFaultException
      * @throws SourceFaultException
      */
     public function getByPeriod(string $figi, DateTime $fromDateTime, DateTime $toDateTime): Dividends

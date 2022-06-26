@@ -4,12 +4,12 @@ namespace rocketfellows\TinkoffInvestV1MethodGetDividends\adapters\rest;
 
 use arslanimamutdinov\ISOStandard4217\ISO4217;
 use DateTime;
+use rocketfellows\TinkoffInvestV1Common\exceptions\faults\IncorrectInputsFaultException;
+use rocketfellows\TinkoffInvestV1Common\exceptions\faults\SourceFaultException;
 use rocketfellows\TinkoffInvestV1Common\models\MoneyValue;
 use rocketfellows\TinkoffInvestV1Common\models\Quotation;
 use rocketfellows\TinkoffInvestV1InstrumentsRestClient\GetDividendsInterface;
 use rocketfellows\TinkoffInvestV1MethodGetDividends\DividendsRequestInterface;
-use rocketfellows\TinkoffInvestV1MethodGetDividends\exceptions\IncorrectInputsException;
-use rocketfellows\TinkoffInvestV1MethodGetDividends\exceptions\SourceFaultException;
 use rocketfellows\TinkoffInvestV1MethodGetDividends\models\Dividend;
 use rocketfellows\TinkoffInvestV1MethodGetDividends\models\Dividends;
 use rocketfellows\TinkoffInvestV1RestClient\exceptions\request\ClientException;
@@ -70,7 +70,7 @@ class DividendsRequestService implements DividendsRequestInterface
 
     /**
      * @throws SourceFaultException
-     * @throws IncorrectInputsException
+     * @throws IncorrectInputsFaultException
      */
     private function request(array $requestData): Dividends
     {
@@ -79,7 +79,7 @@ class DividendsRequestService implements DividendsRequestInterface
                 $this->dividendsRequestClient->getDividends($requestData)[self::RAW_DATA_KEY_DIVIDENDS_LIST] ?? []
             );
         } catch (ClientException $exception) {
-            throw new IncorrectInputsException($exception->getErrorMessage(), $exception->getCode(), $exception);
+            throw new IncorrectInputsFaultException($exception->getErrorMessage(), $exception->getCode(), $exception);
         } catch (ServerException $exception) {
             throw new SourceFaultException($exception->getErrorMessage(), $exception->getCode(), $exception);
         } catch (HttpClientException $exception) {
