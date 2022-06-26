@@ -7,9 +7,6 @@ use rocketfellows\TinkoffInvestV1MethodGetDividends\exceptions\IncorrectInputsEx
 use rocketfellows\TinkoffInvestV1MethodGetDividends\exceptions\SourceFaultException;
 use rocketfellows\TinkoffInvestV1MethodGetDividends\models\Dividends;
 
-/**
- * TODO: implement other functions
- */
 class DividendsService
 {
     private $dividendsRequestInterface;
